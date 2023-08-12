@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onemm.business.mapper.real.ThemeListMapper">
+
+    <insert id="addThemeList" parameterType="ThemeList" useGeneratedKeys="true" keyProperty="id">
+        insert into onemm.theme_list(user_id, title, description, share)
+        values (#{userId}, #{title}, #{description}, #{share})
+    </insert>
+
+    <insert id="addThemeItem" parameterType="ThemeItem">
+        insert into onemm.theme_item(theme_id, store_id)
+        values (#{themeId}, #{storeId})
+    </insert>
+
+    <!--    -->
+    <select id="getThemeListAll" resultType="Map">
+        select list.title,
+               list.description,
+               list.user_id,
+               u.name                                  as user_name,
+               list.id,
+               date_format(list.update_at, '%Y-%m-%d') as update_at,
+               list.share,
+               u.s3,
+               u.photo_url
+        from onemm.theme_list as list
+                 left outer join onemm.user as u
+                                 on list.user_id = u.id
+                 left outer join onemm.theme_item item
+                                 on list.id = item.theme_id
+        where item.store_id is not null
+          and list.user_id not in (select block_user_id from onemm.block_user bu where bu.user_id = #{userId})
+        group by id
+        order by list.create_at desc
+    </select>
+
+    <select id="getThemeListOrderByLike" resultType="Map">
+        select list.id,
+               list.title,
+               list.description,
+               item.store_id,
+               s.name                                  as store_name,
+               s.average_rating,
+               date_format(list.create_at, '%Y-%m-%d') as create_at,
+               date_format(list.update_at, '%Y-%m-%d') as update_at,
+               list.user_id,
+               u.name                                  as user_name,
+               list.share,
+               count(ltl.theme_id)                     as like_count,
+               u.s3,
+               u.photo_url
+        from onemm.theme_list as list
+                 left outer join onemm.theme_item as item
+                                 on item.theme_id = list.id
+                 left outer join onemm.store as s
+                                 on item.store_id = s.id
+                 left outer join onemm.user as u on list.user_id = u.id
+                 left outer join onemm.like_theme_list ltl on list.id = ltl.theme_id
+--         where share = true
+        group by ltl.theme_id, list.id
+        order by like_count desc
+    </select>
+
+    <select id="getThemeListAllByUser" resultType="Map">
+        select list.title,
+               list.description,
+               list.user_id,
+               u.name                                  as user_name,
+               list.id,
+               date_format(list.update_at, '%Y-%m-%d') as update_at,
+               list.share,
+               u.s3,
+               u.photo_url
+        from onemm.theme_list as list
+                 left outer join onemm.user as u
+                                 on list.user_id = u.id
+                 left outer join onemm.theme_item item
+                                 on list.id = item.theme_id
+--         where share = true
+        where user_id = #{userId}
+        group by id
+        order by list.create_at desc
+    </select>
+
+    <select id="getThemeListItems" resultType="Map">
+        select list.title,
+               list.description,
+               list.user_id,
+               u.name as user_name,
+               list.id,
+               item.store_id,
+               s.name as store_name,
+               s.average_rating,
+               u.s3,
+               u.photo_url
+        from onemm.theme_list as list
+                 left outer join onemm.theme_item as item
+                                 on item.theme_id = list.id
+                 left outer join onemm.store as s
+                                 on item.store_id = s.id
+                 left outer join onemm.user as u on list.user_id = u.id
+        where list.id = #{id}
+        group by item.store_id
+    </select>
+
+    <delete id="deleteThemeList">
+        delete
+        from onemm.theme_list
+        where theme_list.id = #{id}
+    </delete>
+
+    <delete id="deleteThemeItem">
+        delete
+        from onemm.theme_item
+        where theme_item.store_id = #{storeId}
+          and theme_item.theme_id = #{themeId}
+    </delete>
+
+    <insert id="addThemeListLike" parameterType="LikeThemeList" useGeneratedKeys="true" keyProperty="id">
+        insert into onemm.like_theme_list(user_id, theme_id, bool)
+        values (#{userId}, #{themeId}, #{bool})
+    </insert>
+
+    <!--    -->
+    <select id="getLikeThemeList" resultType="Map">
+        select ltl.id,
+               ltl.user_id,
+               ltl.theme_id,
+               ltl.bool,
+               list.title,
+               list.description,
+               list.share,
+               list.user_id                            as theme_owner_id,
+               date_format(list.update_at, '%Y-%m-%d') as update_at,
+               u.name                                  as user_name,
+               u.s3,
+               u.photo_url
+        from onemm.like_theme_list ltl
+                 left outer join onemm.theme_list as list
+                                 on ltl.theme_id = list.id
+                 left outer join onemm.user as u
+                                 on list.user_id = u.id
+        where ltl.user_id = #{userId}
+          and list.user_id not in (select block_user_id from onemm.block_user bu where bu.user_id = #{userId})
+
+        group by user_id, theme_id
+        order by list.create_at desc
+    </select>
+
+    <delete id="deleteThemeListLike">
+        delete
+        from onemm.like_theme_list
+        where user_id = #{userId}
+          and theme_id = #{themeId}
+    </delete>
+
+    <select id="getLikeOneTheme" resultType="LikeThemeList">
+        select id, user_id, theme_id, bool
+        from onemm.like_theme_list
+        where user_id = #{userId}
+          and theme_id = #{themeId}
+        group by user_id, theme_id
+    </select>
+
+    <select id="getOneThemeList" resultType="ThemeListDto">
+        select list.id,
+               list.user_id,
+               list.title,
+               list.description,
+               list.share,
+               date_format(list.create_at, '%Y-%m-%d') as create_at,
+               date_format(list.update_at, '%Y-%m-%d') as update_at
+        from onemm.theme_list as list
+        where list.id = #{id}
+    </select>
+
+    <update id="updateThemeList">
+        update onemm.theme_list
+        set title       = #{themeListDto.title},
+            description = #{themeListDto.description}
+        where id = #{id}
+    </update>
+
+</mapper>

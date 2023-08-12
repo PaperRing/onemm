@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.onemm.business.mapper.real.PostMapper">
+
+    <select id="findAll" resultType="Map">
+        select *
+        from onemm.post
+    </select>
+
+    <select id="findByUserName" resultType="Map">
+        select postId, title, content, author
+        from onemm.post
+        where author = #{example.user.name}
+    </select>
+
+    <insert id="savePost" parameterType="Post" useGeneratedKeys="true" keyProperty="postId">
+        insert into onemm.post(title, content, author)
+        values (#{title}, #{content}, #{author})
+    </insert>
+</mapper>
