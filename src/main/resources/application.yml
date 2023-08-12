@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    hikari:
+      real:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://database-1.ctvptgwhas3j.us-east-2.rds.amazonaws.com:3306
+        username: admin
+        password: 01023986958
+        maximum-pool-size: 3
+cloud:
+  aws:
+    credentials:
+      accessKey: AKIAVTH7PMOH44B236RW
+      secretKey: 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
+    s3:
+      bucket: onemm-bucket
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+slack: https://hooks.slack.com/services/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
