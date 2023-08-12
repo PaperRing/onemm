@@ -65,27 +65,6 @@
 
 -   검색 `C` `R` `D`
     
-    지역, 가게 두가지 컬럼을 동시에 검색할 수 있도록 정규식으로 표현했습니다.
-    
-    ```sql
-    select s.id,
-           s.name,
-           s.address,
-           s.dong,
-           group_concat(distinct c.name) as category,
-           s.average_rating,
-           (select count(id)
-                    from onemm.review
-                    where s.id = review.store_id
-                    group by review.store_id) as count
-    from onemm.store s
-           left join onemm.store_category sc on s.id = sc.store_id
-           left join onemm.category c on c.id = sc.category_id
-    where concat(s.name, s.dong) regexp #{name}
-    group by s.id
-    
-    ```
-    
 ----------
 ### 7) 회원정보
 
