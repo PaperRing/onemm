@@ -6,7 +6,7 @@
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/a5cb72d0-cf38-45e5-ab40-a53ffa50f96d"  width="300"  height="644"/>
 
-
+<br>
 가게에 대한 리뷰를 작성하고 별점을 줄 수 있는 기능입니다. 서버 사용 비용을 고려해 한장만 올릴 수 있도록 제한했습니다.
 
 -   리뷰 `C` `R` `U` `D`
@@ -19,6 +19,7 @@
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/735dc090-9bff-40be-84b1-c78cfcad4ff6"  width="300"  height="644"/>
 
+<br>
 자신이 좋아하는 가게들을 테마리스트로 만들어 공유하는 기능입니다. 테마리스트에는 가게(아이템)을 추가하거나 삭제할 수 있습니다. 유저들은 마음에 드는 테마리스트를 좋아요를 눌러서 찜한장소에 저장할 수 있습니다.
 
 -   테마리스트 `C` `R` `U` `D`
@@ -29,6 +30,7 @@
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/ffc7bdbb-8ad4-4397-a5c3-409d5fd90ccd"  width="300"  height="644"/>
 
+<br>
 팔로우 기능입니다. 다른 유저들의 팔로우와 팔로워도 확인 할 수 있습니다.
 
 -   팔로우 `C` `D`
@@ -70,6 +72,7 @@
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/89e36ede-d4d8-4dd7-88ce-4d2e7cf4cac0"  width="300"  height="644"/>
 
+<br>
 닉네임과 프로필 사진을 변경할 수 있습니다. 탈퇴하면 모든 리뷰와 테마리스트 회원정보가 삭제됩니다.
 
 -   회원정보 관리 `R` `U` `D`
@@ -79,5 +82,6 @@
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/5c0e7feb-f249-4442-8456-ccc82a4e8beb"  width="300"  height="644"/>
 
+<br>
 -   다른 유저를 차단하면 리뷰, 테마리스트 등을 볼 수 없습니다.
 -   리뷰를 신고하면 검토후에 삭제합니다.
