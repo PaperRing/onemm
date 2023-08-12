@@ -78,6 +78,6 @@ crashlytics-build.properties
 /out/
 .env*
 
-common/config/database/DatabaseConfig.kt
-resources/application.yml
+/DatabaseConfig.kt
+/application.yml
 
