@@ -9,8 +9,6 @@
 <br>
 <br>
 
-
-
 ### 🎆 주요기능과 실행화면
 
   
@@ -18,9 +16,9 @@
 ### 1) 리뷰
 
   
-<p align="left">
-  <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/a5cb72d0-cf38-45e5-ab40-a53ffa50f96d"  width="300"  height="644"/> |
-  <figcaption>
+<p align="center">
+  <img align="center" src="https://github.com/PaperRing/onemm_backend/assets/63621849/a5cb72d0-cf38-45e5-ab40-a53ffa50f96d"  width="300"  height="644"/> |
+  <figcaption align="center">
   가게에 대한 리뷰를 작성하고 별점을 줄 수 있는 기능입니다. 서버 사용 비용을 고려해 한장만 올릴 수 있도록 제한했습니다.
   - 리뷰 `C`  `R`  `U`  `D`
   
