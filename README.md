@@ -15,7 +15,7 @@
 <br>
 
 ### 1) 리뷰  
----
+--
 
 <img src="https://github.com/PaperRing/onemm_backend/assets/63621849/a5cb72d0-cf38-45e5-ab40-a53ffa50f96d"  width="300"  height="644"/> 
 
