@@ -36,6 +36,7 @@
 
 ### 2) 테마리스트
 
+<br>
   
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/735dc090-9bff-40be-84b1-c78cfcad4ff6"  width="300"  height="644"/>
@@ -57,7 +58,8 @@
 
 ### 3) 팔로우
 
-  
+ <br>
+ 
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/ffc7bdbb-8ad4-4397-a5c3-409d5fd90ccd"  width="300"  height="644"/>
 
@@ -83,6 +85,7 @@
 
 ### 4) 좋아요
 
+<br>
   
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/ae02fe71-3a9e-4e97-8036-3241ebf8483b"  width="300"  height="644"/>
@@ -100,6 +103,7 @@
 
   
 <br>
+
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/b1c338bd-60cb-4dd4-b644-9cd90a6b00c9"  width="300"  height="644"/>
 
   
@@ -115,6 +119,7 @@
 
 ### 6) 검색
 
+<br>
   
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/a92a63ea-1d01-41c0-b76c-b3ae2de47d11"  width="300"  height="644"/>
@@ -132,6 +137,7 @@
 
 ### 7) 회원정보
 
+<br>
   
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/89e36ede-d4d8-4dd7-88ce-4d2e7cf4cac0"  width="300"  height="644"/>
@@ -139,6 +145,7 @@
   
 
 <br>
+
 닉네임과 프로필 사진을 변경할 수 있습니다. 탈퇴하면 모든 리뷰와 테마리스트 회원정보가 삭제됩니다.
 
   
@@ -151,6 +158,7 @@
 
 ### 8) 유저 차단/ 리뷰 신고
 
+<br>
   
 
 <img  src="https://github.com/PaperRing/onemm_backend/assets/63621849/5c0e7feb-f249-4442-8456-ccc82a4e8beb"  width="300"  height="644"/>
@@ -158,6 +166,7 @@
   
 
 <br>
+
 - 다른 유저를 차단하면 리뷰, 테마리스트 등을 볼 수 없습니다.
 
 - 리뷰를 신고하면 검토후에 삭제합니다.
